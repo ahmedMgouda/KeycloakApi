@@ -13,5 +13,18 @@ namespace KeycloakApi.Controllers
         {
             return Ok("This is a protected endpoint");
         }
+
+
+        [Authorize(Roles = "perm-read-surgeon-activities")]
+        public IActionResult GetSurgeonActivities()
+        {
+            return Ok("Surgeon data accessed.");
+        }
+
+        [Authorize(Roles = "perm-read-replenishment")]
+        public IActionResult GetReplenishment()
+        {
+            return Ok("Replenishment data accessed.");
+        }
     }
 }
